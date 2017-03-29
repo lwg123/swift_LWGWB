@@ -157,6 +157,14 @@ extension OAuthViewController {
             
             // 4.2 保存account对象
             NSKeyedArchiver.archiveRootObject(account, toFile: path)
+            
+            // 5 将account对象设置到单例对象中
+            UserAccountViewModel.shareInstance.account = account
+            
+            // 6 退出当前控制器
+            self.dismiss(animated: false, completion: {
+                UIApplication.shared.keyWindow?.rootViewController = WelcomViewController()
+            })
         }
     }
 
