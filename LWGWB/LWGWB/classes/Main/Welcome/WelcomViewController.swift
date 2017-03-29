@@ -35,7 +35,5 @@ class WelcomViewController: UIViewController {
         
     }
 
-   
-    
 
 }

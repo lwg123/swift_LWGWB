@@ -150,13 +150,8 @@ extension OAuthViewController {
             account.avatar_large = infoDict["avatar_large"] as? String
             account.screen_name = infoDict["screen_name"] as? String
             
-            // 4.将account对象保存
-            // 4.1 获取路径
-            var  path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
-            path = (path as NSString).strings(byAppendingPaths: ["account.plist"])[0] as String
-            
-            // 4.2 保存account对象
-            NSKeyedArchiver.archiveRootObject(account, toFile: path)
+            // 4. 保存account对象
+            NSKeyedArchiver.archiveRootObject(account, toFile: UserAccountViewModel.shareInstance.accountPath)
             
             // 5 将account对象设置到单例对象中
             UserAccountViewModel.shareInstance.account = account
