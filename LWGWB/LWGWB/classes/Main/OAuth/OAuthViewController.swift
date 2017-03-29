@@ -39,12 +39,12 @@ extension OAuthViewController {
         // 获取URL地址
         let urlString = "https://api.weibo.com/oauth2/authorize?client_id=\(app_key)&redirect_uri=\(redirect_uri)"
         // 创建URL
-        guard let url = NSURL(string: urlString) else {
+        guard let url = URL(string: urlString) else {
             return
         }
         //
-        let request = NSURLRequest(url: url as URL)
-        webView.loadRequest(request as URLRequest)
+        let request = URLRequest(url: url)
+        webView.loadRequest(request)
     }
 }
 
@@ -56,7 +56,7 @@ extension OAuthViewController {
     }
     
     @objc func fillItemClick() {
-        // 写JS代码
+        // 写JS代码，填充用户名和密码
         let jsCode = "document.getElementById('userId').value = '656442711@qq.com';document.getElementById('passwd').value = 'lwgWL0302';"
         // 执行js代码
         webView .stringByEvaluatingJavaScript(from: jsCode)
@@ -84,7 +84,7 @@ extension OAuthViewController : UIWebViewDelegate {
         }
         // 2.获取URL中的字符串
         let urlStr = url.absoluteString
-        //print(urlStr)
+        
         // 3.判断该字符串中是否包含code
         guard urlStr.contains("code=") else {
             return true
@@ -105,14 +105,21 @@ extension OAuthViewController {
     //请求acesstoken
     func loadAcessToken(code: String) {
         NetworkTools.shareInstance.loadAccessToken(code: code) { (result, error) in
+            // 1.错误校验
             if error != nil {
                 print(error!)
                 return
             }
-            // 字典转模型
-            let account = UserAccount(dict: result)
+            // 2.拿到结果
+            guard let accountDict = result else {
+                print("没有获取授权后的数据")
+                return
+            }
             
-            // 请求用户信息
+            // 3.字典转模型
+            let account = UserAccount(dict: accountDict)
+            
+            // 4.请求用户信息
             self.loadUserInfo(account: account)
             
         }
@@ -130,22 +137,25 @@ extension OAuthViewController {
         }
         
         NetworkTools.shareInstance.loadUserInfo(access_koen: access_koen, uid: uid) { (result, error) in
+             // 1.错误校验
             if error != nil {
                 print(error!)
                 return
             }
-            
+            // 2.拿到用户信息的结果
             guard let infoDict = result else {
                 return
             }
+            // 3.从字典中取出昵称和用户头像地址
             account.avatar_large = infoDict["avatar_large"] as? String
             account.screen_name = infoDict["screen_name"] as? String
             
-            // 获取路径
+            // 4.将account对象保存
+            // 4.1 获取路径
             var  path = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true).first!
             path = (path as NSString).strings(byAppendingPaths: ["account.plist"])[0] as String
             
-            // 保存account对象
+            // 4.2 保存account对象
             NSKeyedArchiver.archiveRootObject(account, toFile: path)
         }
     }

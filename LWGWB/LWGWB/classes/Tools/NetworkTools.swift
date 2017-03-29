@@ -49,7 +49,7 @@ extension NetworkTools {
 
 // MARK: - 请求AcessToken
 extension NetworkTools {
-    func loadAccessToken(code: String, finshed: @escaping (_ result: [String : Any?], _ error: NSError?) -> ()) {
+    func loadAccessToken(code: String, finshed: @escaping (_ result: [String : Any]?, _ error: NSError?) -> ()) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let parameters = ["client_id":app_key,"client_secret":app_secret,"grant_type":"authorization_code","code":code,"redirect_uri":redirect_uri]
         request(methodType: .POST, urlString: urlString, parameters: parameters) { (result, error) in

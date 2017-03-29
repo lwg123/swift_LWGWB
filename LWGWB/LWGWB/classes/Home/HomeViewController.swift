@@ -44,6 +44,8 @@ extension HomeViewController {
         titleBtn.setTitle("coderwhy", for: UIControlState())
         titleBtn.addTarget(self, action: #selector(HomeViewController.titleBtnClick(_:)), for: .touchUpInside)
         navigationItem.titleView = titleBtn
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "IBARevealRequestStop"), object: nil)
     }
     
 }
