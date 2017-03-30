@@ -42,6 +42,8 @@
 		D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E08631E712A2C000324E3 /* NetworkTools.swift */; };
 		D17625481E8BB4F900E28F33 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17625471E8BB4F900E28F33 /* Status.swift */; };
 		D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */; };
+		D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */; };
+		D1AAC7D01E8CD331007C6F87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CF1E8CD331007C6F87 /* User.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,9 +94,11 @@
 		D15DF38E1E25DCA400C96BEF /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		D15DF3941E25DD4100C96BEF /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		D15DF3961E25F44000C96BEF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		D16E08631E712A2C000324E3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkTools.swift; path = ../NetworkTools.swift; sourceTree = "<group>"; };
+		D16E08631E712A2C000324E3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		D17625471E8BB4F900E28F33 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
+		D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
+		D1AAC7CF1E8CD331007C6F87 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE8713F171C44430EFD17F81 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -244,6 +248,7 @@
 			children = (
 				D1226B8B1E24D6640043DFCF /* Category */,
 				D13D01F31E274C12007790F4 /* TitleButton.swift */,
+				D16E08631E712A2C000324E3 /* NetworkTools.swift */,
 				D1275E811E719EA700CCF0D6 /* Common.swift */,
 			);
 			path = Tools;
@@ -252,8 +257,8 @@
 		D1226B8B1E24D6640043DFCF /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				D16E08631E712A2C000324E3 /* NetworkTools.swift */,
 				D1226B8C1E24D6D60043DFCF /* UIButton-Category.swift */,
+				D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */,
 				D13D01F11E272E65007790F4 /* UIBarButtonItem-Extension.swift */,
 			);
 			path = Category;
@@ -304,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				D17625471E8BB4F900E28F33 /* Status.swift */,
+				D1AAC7CF1E8CD331007C6F87 /* User.swift */,
 			);
 			path = HomeModel;
 			sourceTree = "<group>";
@@ -485,6 +491,7 @@
 				D14593BD1E2CA58C00C9CF79 /* PopoverViewController.swift in Sources */,
 				D13D01F41E274C12007790F4 /* TitleButton.swift in Sources */,
 				D10D8EE71E1A3501003F6325 /* MainViewController.swift in Sources */,
+				D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */,
 				D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */,
 				D1226B8D1E24D6D60043DFCF /* UIButton-Category.swift in Sources */,
 				D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */,
@@ -494,6 +501,7 @@
 				D14593C01E2CAC6900C9CF79 /* XMGPresentionController.swift in Sources */,
 				D15DF3951E25DD4100C96BEF /* VisitorView.swift in Sources */,
 				D13FB24B1E8B7DDE0047FF6F /* WelcomViewController.swift in Sources */,
+				D1AAC7D01E8CD331007C6F87 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
