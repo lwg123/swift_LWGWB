@@ -13,9 +13,10 @@ class User: NSObject {
     // MARK:- 属性
     var profile_image_url: String?    // 用户的头像
     var screen_name: String?          // 用户的昵称
-    var verified_type: Int = -1       // 用户的认证类型
+    var verified_type: Int = -1       // 用户的认证类型，不能直接使用，转换成img类型
     var mbrank: Int = 0               // 用户的会员等级
-    
+       
+
     // MARK:- 自定义构造函数
     init(dict: [String : AnyObject]) {
         super.init()
@@ -23,7 +24,6 @@ class User: NSObject {
         setValuesForKeys(dict)
     }
     
-    override func setValue(_ value: Any?, forUndefinedKey key: String) {
-
-    }
+    override func setValue(_ value: Any?, forUndefinedKey key: String) {}
+    
 }

@@ -40,6 +40,7 @@
 		D15DF3951E25DD4100C96BEF /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DF3941E25DD4100C96BEF /* VisitorView.swift */; };
 		D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DF3961E25F44000C96BEF /* BaseViewController.swift */; };
 		D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E08631E712A2C000324E3 /* NetworkTools.swift */; };
+		D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */; };
 		D17625481E8BB4F900E28F33 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17625471E8BB4F900E28F33 /* Status.swift */; };
 		D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */; };
 		D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */; };
@@ -95,6 +96,7 @@
 		D15DF3941E25DD4100C96BEF /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		D15DF3961E25F44000C96BEF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D16E08631E712A2C000324E3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		D17625471E8BB4F900E28F33 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
@@ -310,6 +312,7 @@
 			children = (
 				D17625471E8BB4F900E28F33 /* Status.swift */,
 				D1AAC7CF1E8CD331007C6F87 /* User.swift */,
+				D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */,
 			);
 			path = HomeModel;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */,
 				D1226B8D1E24D6D60043DFCF /* UIButton-Category.swift in Sources */,
 				D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */,
+				D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */,
 				D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */,
 				D1226B7A1E24C40A0043DFCF /* HomeViewController.swift in Sources */,
 				D10D8EED1E1A377B003F6325 /* MessageViewController.swift in Sources */,
