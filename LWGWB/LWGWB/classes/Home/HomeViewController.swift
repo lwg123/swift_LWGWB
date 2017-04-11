@@ -107,13 +107,13 @@ extension HomeViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 创建cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell")!
         
         // 给cell设置数据
         let status = statuses[indexPath.row]
-        cell?.textLabel?.text = status.text
+        cell.textLabel?.text = status.text
         
-        return cell!
+        return cell
     }
 }
 

@@ -12,6 +12,7 @@ extension Date {
     static func createDateString(createAtStr: String) -> String {
         // 1.创建时间格式化对象
         let fmt = DateFormatter()
+        // 时间格式：星期：EEE 月份：MM 天：dd 时分秒：HH：mm：ss 时区：Z 年份：yyyy
         fmt.dateFormat = "EEE MM dd HH:mm:ss Z yyyy"
         fmt.locale = NSLocale(localeIdentifier: "en") as Locale!
         // 2.将字符串时间，转成NSDate类型

@@ -49,6 +49,7 @@ class Status: NSObject {
         super.init()
         
         setValuesForKeys(dict)
+        
         // 1.将用户字典转成用户模型对象
         if let userDict = dict["user"] as? [String : AnyObject] {
             user = User(dict: userDict)
