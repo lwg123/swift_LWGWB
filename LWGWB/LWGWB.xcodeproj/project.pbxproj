@@ -41,6 +41,7 @@
 		D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DF3961E25F44000C96BEF /* BaseViewController.swift */; };
 		D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E08631E712A2C000324E3 /* NetworkTools.swift */; };
 		D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */; };
+		D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0421E9CCE67006C8172 /* HomeViewCell.swift */; };
 		D17625481E8BB4F900E28F33 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17625471E8BB4F900E28F33 /* Status.swift */; };
 		D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */; };
 		D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */; };
@@ -97,6 +98,7 @@
 		D15DF3961E25F44000C96BEF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		D16E08631E712A2C000324E3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
+		D175D0421E9CCE67006C8172 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		D17625471E8BB4F900E28F33 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
@@ -237,10 +239,11 @@
 		D1226B781E24C40A0043DFCF /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D17625461E8BB4E000E28F33 /* HomeModel */,
 				D14593BA1E2CA55C00C9CF79 /* UIPopover */,
+				D17625461E8BB4E000E28F33 /* HomeModel */,
 				D1226B851E24C6130043DFCF /* Home.storyboard */,
 				D1226B791E24C40A0043DFCF /* HomeViewController.swift */,
+				D175D0421E9CCE67006C8172 /* HomeViewCell.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -499,6 +502,7 @@
 				D1226B8D1E24D6D60043DFCF /* UIButton-Category.swift in Sources */,
 				D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */,
 				D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */,
+				D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */,
 				D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */,
 				D1226B7A1E24C40A0043DFCF /* HomeViewController.swift in Sources */,
 				D10D8EED1E1A377B003F6325 /* MessageViewController.swift in Sources */,

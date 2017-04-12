@@ -18,6 +18,7 @@ class WelcomViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    
         // 设置头像
         let profileURLString = UserAccountViewModel.shareInstance.account?.avatar_large
         let url = URL(string: profileURLString ?? "")

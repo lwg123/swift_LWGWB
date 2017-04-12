@@ -17,7 +17,7 @@ class HomeViewController: BaseViewController {
         self.titleBtn.isSelected = presented
     }
     
-    lazy var statuses: [Status] = [Status]()
+    lazy var viewModels: [StatusViewModel] = [StatusViewModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +90,8 @@ extension HomeViewController {
             // 遍历微博对应的字典
             for statusDict in resultArray {
                 let status = Status(dict: statusDict)
-                self.statuses.append(status)
+                let viewModel = StatusViewModel(status: status)
+                self.viewModels.append(viewModel)
             }
             
             // 刷新表格
@@ -102,16 +103,15 @@ extension HomeViewController {
 // MARK:- tableView的数据源方法
 extension HomeViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return statuses.count
+        return viewModels.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // 创建cell
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell") as! HomeViewCell
         
         // 给cell设置数据
-        let status = statuses[indexPath.row]
-        cell.textLabel?.text = status.text
+        cell.viewModel = viewModels[indexPath.row]
         
         return cell
     }
