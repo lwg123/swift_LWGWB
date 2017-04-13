@@ -10,6 +10,7 @@ import UIKit
 import SDWebImage
 
 private let edgeMargin : CGFloat = 15
+private let itemMargin : CGFloat = 10
 
 class HomeViewCell: UITableViewCell {
     
@@ -20,9 +21,13 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var picCollectionView: PicCollectionView!
     
     // 约束的属性
     @IBOutlet weak var contentWidthConstraints: NSLayoutConstraint!
+    @IBOutlet weak var picViewHCons: NSLayoutConstraint!
+    @IBOutlet weak var picViewWCons: NSLayoutConstraint!
+    
     
     // 自定义属性
     var viewModel : StatusViewModel? {
@@ -44,6 +49,14 @@ class HomeViewCell: UITableViewCell {
             
             // 设置昵称文字颜色
             screenName.textColor = viewModel.vipImage == nil ? UIColor.black : UIColor.orange
+            
+            // 计算picView的宽度和高度
+            let picViewSize = calculatePicViewSize(count: viewModel.picURLs.count)
+            picViewWCons.constant = picViewSize.width
+            picViewHCons.constant = picViewSize.height
+            
+            // picView的picURL传过去
+            picCollectionView.picURLs = viewModel.picURLs
         }
     }
     
@@ -53,7 +66,51 @@ class HomeViewCell: UITableViewCell {
         
         // 设置微博正文宽度 约束
         contentWidthConstraints.constant = UIScreen.main.bounds.width - 2 * edgeMargin
+        
+        // 取出picView对应的layout
+        let layout = picCollectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let imageViewH = (SCREEN_WIDTH - 2 * edgeMargin - 2 * itemMargin) / 3
+        layout.itemSize = CGSize(width: imageViewH, height: imageViewH)
     }
 
    
 }
+
+// MARK: - 计算方法
+extension HomeViewCell {
+     func calculatePicViewSize(count: Int) -> CGSize {
+        // 1. 没有配图
+        if count == 0 {
+            return CGSize(width: 0, height: 0)
+        }
+        
+        // 2. 计算出来imageViewH
+        let imageViewH = (SCREEN_WIDTH - 2 * edgeMargin - 2 * itemMargin) / 3
+        
+        // 3. 四张配图
+        if count == 4 {
+            let picViewH = imageViewH * 2 + itemMargin
+            return CGSize(width: picViewH, height: picViewH)
+        }
+        
+        // 4. 四张配图
+        // 4.1 计算行数
+        let rows = CGFloat((count - 1) / 3 + 1)
+        
+        // 4.2 计算picView的高度
+        let picViewH = rows * imageViewH + (rows - 1) * itemMargin
+        
+        // 4.3 计算picView的宽度
+        let picViewW = SCREEN_WIDTH - 2 * edgeMargin
+        
+        return CGSize(width: picViewH, height: picViewW)
+    }
+}
+
+
+
+
+
+
+
+

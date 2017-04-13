@@ -6,9 +6,12 @@
 //  Copyright © 2017年 weiguang. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - 授权的常量
 let app_key = "2426513443"
 let app_secret = "7e21ff00e4858d15804d29ebc20b0d6f"
 let redirect_uri = "http://www.520it.com"
+
+let SCREEN_WIDTH = UIScreen.main.bounds.width
+let SCREEN_HEIGHT = UIScreen.main.bounds.height

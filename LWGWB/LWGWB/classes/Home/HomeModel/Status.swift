@@ -17,7 +17,8 @@ class Status: NSObject {
     var source: String?
     var text: String?             // 微博的正文
     var mid: Int = 0             // 微博的ID
-    var user : User?
+    var user : User?             // 微博对应的用户
+    var pic_urls : [[String : String]]?  // 微博图片地址
     
    
     // MARK:- 自定义构造函数

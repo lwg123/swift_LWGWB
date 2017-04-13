@@ -34,6 +34,7 @@ class HomeViewController: BaseViewController {
         // 3.请求数据
         loadStatuses()
         
+        // 添加下面属性，可以自己估算高度，自适应内容，需要在cell中的label中设置高度约束
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
     }
