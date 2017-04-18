@@ -44,7 +44,7 @@ extension PicCollectionView : UICollectionViewDataSource {
 
 
 class PicCollectionViewCell: UICollectionViewCell {
-    // mark ： - 定义模型属性
+    // mark: - 定义模型属性
     var picURL : URL? {
         didSet {
             guard let picURL = picURL else {
