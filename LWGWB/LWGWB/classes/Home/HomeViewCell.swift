@@ -28,6 +28,7 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var picViewHCons: NSLayoutConstraint!
     @IBOutlet weak var picViewWCons: NSLayoutConstraint!
     
+    @IBOutlet weak var retweetedContentLabel: UILabel!
     
     // 自定义属性
     var viewModel : StatusViewModel? {
@@ -57,6 +58,17 @@ class HomeViewCell: UITableViewCell {
             
             // picView的picURL传过去
             picCollectionView.picURLs = viewModel.picURLs
+            
+            // 设置转发微博的正文
+            if viewModel.status?.retweeted_status != nil {
+                if let screenName = viewModel.status?.user?.screen_name,let retweetedText = viewModel.status?.retweeted_status?.text {
+                    
+                    retweetedContentLabel.text = "@" + "\(screenName)" + retweetedText
+                }
+                
+            } else {
+                retweetedContentLabel.text = nil
+            }
         }
     }
     
