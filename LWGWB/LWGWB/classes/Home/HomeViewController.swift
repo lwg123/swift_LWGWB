@@ -105,32 +105,43 @@ extension HomeViewController {
     /// 加载最新的数据
     @objc fileprivate func loadNewStatuses() {
         
-        loadStatuses()
+        loadStatuses(isNewDate: true)
     }
     
     
-    func loadStatuses() {
-        NetworkTools.shareInstance.loadStatuses { (result, error) in
-            // 错误校验
+    func loadStatuses(isNewDate: Bool) {
+        
+        // 1.获取since_id，第一条微博的ID
+        var since_id = 0
+        if isNewDate {
+            since_id = viewModels.first?.status?.mid ?? 0
+        }
+        
+        NetworkTools.shareInstance.loadStatuses(since_id: since_id) { (result: [[String : AnyObject]]?, error: Error?) in
+            
+            // 1.错误校验
             if error != nil {
                 print(error!)
                 return
             }
-            // 获取可选类型中的数据
+            // 2.获取可选类型中的数据
             guard let resultArray = result else {
                 return
             }
             
-            // 遍历微博对应的字典
+            // 3.遍历微博对应的字典
+            var tempViewModel = [StatusViewModel]()
             for statusDict in resultArray {
                 let status = Status(dict: statusDict)
                 let viewModel = StatusViewModel(status: status)
-                self.viewModels.append(viewModel)
+                tempViewModel.append(viewModel)
             }
             
-            // 缓存图片
-            self.cacheImages(viewModels: self.viewModels)
+            // 4.将数据放入成员变量的数组中
+            self.viewModels = tempViewModel + self.viewModels
             
+            // 5.缓存图片
+            self.cacheImages(viewModels: tempViewModel)
         }
     }
     
