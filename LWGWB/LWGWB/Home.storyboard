@@ -61,7 +61,7 @@
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="今天天气不错哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZS9-I0-nO8" userLabel="内容">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="今天天气不错哦" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZS9-I0-nO8" userLabel="微博正文">
                                             <rect key="frame" x="15" y="65" width="122" height="18"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="122" id="zaz-kl-fDT"/>
@@ -70,7 +70,7 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10C-ax-oln">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="10C-ax-oln" userLabel="底部工具栏">
                                             <rect key="frame" x="0.0" y="255" width="375" height="40"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJj-Kn-EiS">
@@ -146,7 +146,11 @@
                                                 <constraint firstAttribute="trailing" secondItem="nGs-bY-Iav" secondAttribute="trailing" id="zQM-M1-aMq"/>
                                             </constraints>
                                         </view>
-                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="41S-Ng-3dX" customClass="PicCollectionView" customModule="LWGWB" customModuleProvider="target">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eW3-9s-XDc" userLabel="转发的背景">
+                                            <rect key="frame" x="0.0" y="91" width="375" height="164"/>
+                                            <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                        </view>
+                                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="41S-Ng-3dX" userLabel="图片的view" customClass="PicCollectionView" customModule="LWGWB" customModuleProvider="target">
                                             <rect key="frame" x="15" y="189" width="180" height="56"/>
                                             <color key="backgroundColor" red="1" green="0.57850406409999999" blue="0.091357635660000006" alpha="1" colorSpace="calibratedRGB"/>
                                             <constraints>
@@ -184,7 +188,7 @@
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天天气确实不错" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-6P-SIq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="今天天气确实不错" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-6P-SIq" userLabel="转发正文">
                                             <rect key="frame" x="15" y="98" width="122" height="81"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
@@ -193,6 +197,7 @@
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="ZS9-I0-nO8" firstAttribute="top" secondItem="2e7-8d-Q0w" secondAttribute="bottom" constant="15" id="10p-Yb-QOr"/>
+                                        <constraint firstItem="eW3-9s-XDc" firstAttribute="top" secondItem="ZS9-I0-nO8" secondAttribute="bottom" constant="8" id="2bZ-um-FWd"/>
                                         <constraint firstItem="ecR-6P-SIq" firstAttribute="width" secondItem="ZS9-I0-nO8" secondAttribute="width" id="4bS-t5-fL0"/>
                                         <constraint firstItem="QnO-0T-osF" firstAttribute="centerY" secondItem="cff-Aq-jqQ" secondAttribute="centerY" id="4lK-K2-hUC"/>
                                         <constraint firstItem="IDs-jS-YB9" firstAttribute="trailing" secondItem="1hF-0V-Fx4" secondAttribute="trailing" id="6UH-ZL-wEs"/>
@@ -208,9 +213,12 @@
                                         <constraint firstItem="cff-Aq-jqQ" firstAttribute="top" secondItem="1hF-0V-Fx4" secondAttribute="top" id="VKk-9U-eVW"/>
                                         <constraint firstItem="YIm-D0-RHk" firstAttribute="top" secondItem="2e7-8d-Q0w" secondAttribute="top" id="Zi1-5C-DeW"/>
                                         <constraint firstItem="IDs-jS-YB9" firstAttribute="bottom" secondItem="1hF-0V-Fx4" secondAttribute="bottom" id="bVx-N0-8G2"/>
+                                        <constraint firstAttribute="trailing" secondItem="eW3-9s-XDc" secondAttribute="trailing" id="dK4-xJ-eMI"/>
                                         <constraint firstItem="YIm-D0-RHk" firstAttribute="leading" secondItem="2e7-8d-Q0w" secondAttribute="trailing" constant="10" id="dLf-wa-KJD"/>
                                         <constraint firstItem="1hF-0V-Fx4" firstAttribute="leading" secondItem="yQz-HQ-q62" secondAttribute="leading" constant="15" id="fRc-c5-JXw"/>
+                                        <constraint firstItem="eW3-9s-XDc" firstAttribute="leading" secondItem="yQz-HQ-q62" secondAttribute="leading" id="lyU-lX-KDq"/>
                                         <constraint firstItem="ecR-6P-SIq" firstAttribute="top" secondItem="ZS9-I0-nO8" secondAttribute="bottom" constant="15" id="mcm-2H-Epn"/>
+                                        <constraint firstItem="10C-ax-oln" firstAttribute="top" secondItem="eW3-9s-XDc" secondAttribute="bottom" id="ofN-dh-JjS"/>
                                         <constraint firstItem="10C-ax-oln" firstAttribute="top" secondItem="41S-Ng-3dX" secondAttribute="bottom" priority="700" constant="10" id="rYi-xR-AR4"/>
                                         <constraint firstItem="ecR-6P-SIq" firstAttribute="leading" secondItem="1hF-0V-Fx4" secondAttribute="leading" id="s3T-0b-S8w"/>
                                         <constraint firstAttribute="bottom" secondItem="10C-ax-oln" secondAttribute="bottom" id="uaK-mZ-NNA"/>
@@ -218,12 +226,15 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bgView" destination="eW3-9s-XDc" id="0PW-6f-V7w"/>
                                     <outlet property="contentLabel" destination="ZS9-I0-nO8" id="VWn-dS-5cz"/>
                                     <outlet property="contentWidthConstraints" destination="zaz-kl-fDT" id="ARV-al-REb"/>
                                     <outlet property="iconView" destination="1hF-0V-Fx4" id="O7M-jV-X5B"/>
                                     <outlet property="picCollectionView" destination="41S-Ng-3dX" id="2wp-Gm-JCQ"/>
+                                    <outlet property="picViewBottomCons" destination="rYi-xR-AR4" id="yWB-xf-0sD"/>
                                     <outlet property="picViewHCons" destination="mbA-N2-crW" id="KCk-EX-jR7"/>
                                     <outlet property="picViewWCons" destination="18c-j5-2b2" id="7Lb-Yb-Coz"/>
+                                    <outlet property="retweetedCons" destination="mcm-2H-Epn" id="Y8X-Nv-z1u"/>
                                     <outlet property="retweetedContentLabel" destination="ecR-6P-SIq" id="efD-6y-d9t"/>
                                     <outlet property="screenName" destination="cff-Aq-jqQ" id="d3o-Uc-Ziz"/>
                                     <outlet property="sourceLabel" destination="YIm-D0-RHk" id="y8U-Kf-N7u"/>

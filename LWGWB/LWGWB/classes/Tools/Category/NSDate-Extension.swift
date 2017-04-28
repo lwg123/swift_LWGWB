@@ -9,7 +9,7 @@
 import Foundation
 
 extension Date {
-    static func createDateString(createAtStr: String) -> String {
+    static func createDateString(_ createAtStr: String) -> String {
         // 1.创建时间格式化对象
         let fmt = DateFormatter()
         // 时间格式：星期：EEE 月份：MM 天：dd 时分秒：HH：mm：ss 时区：Z 年份：yyyy

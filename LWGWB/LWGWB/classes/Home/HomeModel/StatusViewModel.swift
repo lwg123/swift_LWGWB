@@ -37,7 +37,7 @@ class StatusViewModel: NSObject {
         // 2. 处理时间
         if let created_at = status.created_at {
             //对时间处理
-            createAtText = Date.createDateString(createAtStr: created_at)
+            createAtText = Date.createDateString(created_at)
         }
         
         // 3.处理认证

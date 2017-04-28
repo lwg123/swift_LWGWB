@@ -94,7 +94,7 @@ extension OAuthViewController : UIWebViewDelegate {
         let code = urlStr.components(separatedBy: "code=").last!
         
        // print(code)
-        loadAcessToken(code: code)
+        loadAcessToken(code)
         
         return false
     }
@@ -103,8 +103,8 @@ extension OAuthViewController : UIWebViewDelegate {
 // MARK: - 请求参数
 extension OAuthViewController {
     //请求acesstoken
-    func loadAcessToken(code: String) {
-        NetworkTools.shareInstance.loadAccessToken(code: code) { (result, error) in
+    func loadAcessToken(_ code: String) {
+        NetworkTools.shareInstance.loadAccessToken(code) { (result, error) in
             // 1.错误校验
             if error != nil {
                 print(error!)
@@ -120,13 +120,13 @@ extension OAuthViewController {
             let account = UserAccount(dict: accountDict)
             
             // 4.请求用户信息
-            self.loadUserInfo(account: account)
+            self.loadUserInfo(account)
             
         }
     }
     
     // 用户请求信息
-    func loadUserInfo(account: UserAccount) {
+    func loadUserInfo(_ account: UserAccount) {
         // 获取access_koen
         guard let access_koen = account.access_token else {
             return
@@ -136,7 +136,7 @@ extension OAuthViewController {
             return
         }
         
-        NetworkTools.shareInstance.loadUserInfo(access_koen: access_koen, uid: uid) { (result, error) in
+        NetworkTools.shareInstance.loadUserInfo(access_koen, uid: uid) { (result, error) in
              // 1.错误校验
             if error != nil {
                 print(error!)

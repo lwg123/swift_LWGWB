@@ -8,6 +8,8 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
+
 
 class HomeViewController: BaseViewController {
     
@@ -32,12 +34,16 @@ class HomeViewController: BaseViewController {
         //2.设置导航栏的内容
         setupNavigationBar()
         
-        // 3.请求数据
-        loadStatuses()
+//        // 3.请求数据
+//        loadStatuses()
         
-        // 添加下面属性，可以自己估算高度，自适应内容，需要在cell中的label中设置高度约束
+        // 3.添加下面属性，可以自己估算高度，自适应内容，需要在cell中的label中设置高度约束
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 100
+        
+        // 4.刷新控件header
+        setupHeaderView()
+        
     }
 
    
@@ -54,8 +60,24 @@ extension HomeViewController {
         titleBtn.setTitle("coderwhy", for: UIControlState())
         titleBtn.addTarget(self, action: #selector(HomeViewController.titleBtnClick(_:)), for: .touchUpInside)
         navigationItem.titleView = titleBtn
-        
+
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "IBARevealRequestStop"), object: nil)
+    }
+    
+    fileprivate func setupHeaderView() {
+        // 1.创建headerView
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadNewStatuses))
+        
+        // 2.设置header的属性
+        header?.setTitle("下拉刷新", for: .idle)
+        header?.setTitle("释放更新", for: .pulling)
+        header?.setTitle("加载中", for: .refreshing)
+        
+        // 3.设置tableView的header
+        tableView.mj_header = header
+        
+        // 4.进入刷新状态
+        tableView.mj_header.beginRefreshing()
     }
     
 }
@@ -80,6 +102,13 @@ extension HomeViewController {
 
 // MARK:- 请求数据
 extension HomeViewController {
+    /// 加载最新的数据
+    @objc fileprivate func loadNewStatuses() {
+        
+        loadStatuses()
+    }
+    
+    
     func loadStatuses() {
         NetworkTools.shareInstance.loadStatuses { (result, error) in
             // 错误校验
@@ -128,7 +157,8 @@ extension HomeViewController {
         // 2.刷新表格，利用group.notify来刷新表格
         group.notify(queue: DispatchQueue.main) { 
             self.tableView.reloadData()
-           // print("刷新表格")
+           
+            self.tableView.mj_header.endRefreshing()
         }
         
     }

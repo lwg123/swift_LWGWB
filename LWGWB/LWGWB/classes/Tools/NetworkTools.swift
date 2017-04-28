@@ -26,7 +26,7 @@ class NetworkTools: AFHTTPSessionManager {
 
 // MARK:- 封装请求方法
 extension NetworkTools {
-    func request(methodType: RequestType, urlString: String, parameters: [String : Any], finshed: @escaping (_ reslut: Any?, _ error: Error?) -> ()) {
+    func request(_ methodType: RequestType, urlString: String, parameters: [String : Any], finshed: @escaping (_ reslut: Any?, _ error: Error?) -> ()) {
         
         // 1.定义成功的闭包
         let successCallBack = { (task: URLSessionDataTask, result: Any?) in
@@ -49,10 +49,10 @@ extension NetworkTools {
 
 // MARK: - 请求AcessToken
 extension NetworkTools {
-    func loadAccessToken(code: String, finshed: @escaping (_ result: [String : Any]?, _ error: NSError?) -> ()) {
+    func loadAccessToken(_ code: String, finshed: @escaping (_ result: [String : Any]?, _ error: NSError?) -> ()) {
         let urlString = "https://api.weibo.com/oauth2/access_token"
         let parameters = ["client_id":app_key,"client_secret":app_secret,"grant_type":"authorization_code","code":code,"redirect_uri":redirect_uri]
-        request(methodType: .POST, urlString: urlString, parameters: parameters) { (result, error) in
+        request(.POST, urlString: urlString, parameters: parameters) { (result, error) in
             finshed(result as! [String : Any?],error as NSError?)
         }
     }
@@ -61,13 +61,13 @@ extension NetworkTools {
 
 // MARK: - 请求用户信息
 extension NetworkTools {
-    func loadUserInfo(access_koen: String, uid: String, finshed: @escaping (_ result: [String : Any]?, _ error: Error?) -> ()) {
+    func loadUserInfo(_ access_koen: String, uid: String, finshed: @escaping (_ result: [String : Any]?, _ error: Error?) -> ()) {
         // 1.获取请求URLString
         let urlString = "https://api.weibo.com/2/users/show.json"
         // 2. 获取请求参数,原文档缺少source
         let parameters = ["access_koen":access_koen, "uid":uid, "source":app_key]
         // 3. 发送网络请求
-        request(methodType: .GET, urlString: urlString, parameters: parameters) { (result, error) in
+        request(.GET, urlString: urlString, parameters: parameters) { (result, error) in
             finshed(result as! [String : Any]?, error)
         }
     }
@@ -75,13 +75,13 @@ extension NetworkTools {
 
 // MARK:- 请求首页数据
 extension NetworkTools {
-    func loadStatuses(finished: @escaping (_ result: [[String : AnyObject]]?, _ error: Error?) -> ()) {
+    func loadStatuses(_ finished: @escaping (_ result: [[String : AnyObject]]?, _ error: Error?) -> ()) {
         // 1.获取请求的URLString
         let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
         // 2.获取请求的参数
         let parameters = ["access_token" : (UserAccountViewModel.shareInstance.account?.access_token)!]
         // 3.发送网络请求
-        request(methodType: .GET, urlString: urlString, parameters: parameters) { (result, error) -> () in
+        request(.GET, urlString: urlString, parameters: parameters) { (result, error) -> () in
             // 1.获取字典的数据
             guard let resultDict = result as? [String : AnyObject] else {
                 finished(nil, error)
