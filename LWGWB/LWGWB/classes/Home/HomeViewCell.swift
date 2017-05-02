@@ -48,8 +48,16 @@ class HomeViewCell: UITableViewCell {
             vipImg.image = viewModel.vipImage
             screenName.text = viewModel.status?.user?.screen_name
             timeLabel.text = viewModel.createAtText
-            sourceLabel.text = viewModel.sourceText
+    
             contentLabel.text = viewModel.status?.text
+            
+            // 设置来源
+            if let sourceText = viewModel.sourceText {
+                sourceLabel.text = "来自" + sourceText
+            } else{
+                sourceLabel.text = nil
+            }
+            
             
             // 设置昵称文字颜色
             screenName.textColor = viewModel.vipImage == nil ? UIColor.black : UIColor.orange

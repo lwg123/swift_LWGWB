@@ -43,7 +43,7 @@ class HomeViewController: BaseViewController {
         
         // 4.刷新控件header
         setupHeaderView()
-        
+        setupFooterView()
     }
 
    
@@ -80,6 +80,10 @@ extension HomeViewController {
         tableView.mj_header.beginRefreshing()
     }
     
+    fileprivate func setupFooterView() {
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadMoreStatuses))
+    }
+    
 }
 
 // MARK:- 事件监听的函数
@@ -102,22 +106,33 @@ extension HomeViewController {
 
 // MARK:- 请求数据
 extension HomeViewController {
-    /// 加载最新的数据
+    /// 加载最新数据
     @objc fileprivate func loadNewStatuses() {
         
         loadStatuses(isNewDate: true)
     }
     
+    /// 加载更多数据
+    @objc fileprivate func loadMoreStatuses() {
+        
+        loadStatuses(isNewDate: false)
+    
+    }
+    
     
     func loadStatuses(isNewDate: Bool) {
         
-        // 1.获取since_id，第一条微博的ID
+        // 1.获取since_id/max_id
         var since_id = 0
+        var max_id = 0
         if isNewDate {
             since_id = viewModels.first?.status?.mid ?? 0
+        }else {
+            max_id = viewModels.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
         }
         
-        NetworkTools.shareInstance.loadStatuses(since_id: since_id) { (result: [[String : AnyObject]]?, error: Error?) in
+        NetworkTools.shareInstance.loadStatuses(since_id: since_id, max_id: max_id) { (result: [[String : AnyObject]]?, error: Error?) in
             
             // 1.错误校验
             if error != nil {
@@ -138,7 +153,12 @@ extension HomeViewController {
             }
             
             // 4.将数据放入成员变量的数组中
-            self.viewModels = tempViewModel + self.viewModels
+            if isNewDate {
+                self.viewModels = tempViewModel + self.viewModels
+            } else {
+                self.viewModels += tempViewModel
+            }
+            
             
             // 5.缓存图片
             self.cacheImages(viewModels: tempViewModel)
@@ -170,6 +190,7 @@ extension HomeViewController {
             self.tableView.reloadData()
            
             self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
         
     }
