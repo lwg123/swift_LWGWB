@@ -40,6 +40,7 @@
 		D15DF38F1E25DCA400C96BEF /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D15DF38E1E25DCA400C96BEF /* VisitorView.xib */; };
 		D15DF3951E25DD4100C96BEF /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DF3941E25DD4100C96BEF /* VisitorView.swift */; };
 		D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D15DF3961E25F44000C96BEF /* BaseViewController.swift */; };
+		D162353C1EB97B790091DF95 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D162353B1EB97B790091DF95 /* ComposeTextView.swift */; };
 		D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = D16E08631E712A2C000324E3 /* NetworkTools.swift */; };
 		D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */; };
 		D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0421E9CCE67006C8172 /* HomeViewCell.swift */; };
@@ -101,6 +102,7 @@
 		D15DF38E1E25DCA400C96BEF /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
 		D15DF3941E25DD4100C96BEF /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		D15DF3961E25F44000C96BEF /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D162353B1EB97B790091DF95 /* ComposeTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		D16E08631E712A2C000324E3 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
 		D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		D175D0421E9CCE67006C8172 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */,
 				D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */,
 				D19BC30D1EB8796800D3DF12 /* ComposeTitleView.swift */,
+				D162353B1EB97B790091DF95 /* ComposeTextView.swift */,
 			);
 			path = Compose;
 			sourceTree = "<group>";
@@ -522,6 +525,7 @@
 				D10D8EE71E1A3501003F6325 /* MainViewController.swift in Sources */,
 				D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */,
 				D16E08641E712A2C000324E3 /* NetworkTools.swift in Sources */,
+				D162353C1EB97B790091DF95 /* ComposeTextView.swift in Sources */,
 				D1226B8D1E24D6D60043DFCF /* UIButton-Category.swift in Sources */,
 				D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */,
 				D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */,
