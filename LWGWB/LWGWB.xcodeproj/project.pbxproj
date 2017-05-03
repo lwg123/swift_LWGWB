@@ -45,6 +45,9 @@
 		D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0421E9CCE67006C8172 /* HomeViewCell.swift */; };
 		D17625481E8BB4F900E28F33 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17625471E8BB4F900E28F33 /* Status.swift */; };
 		D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */; };
+		D19BC30B1EB86C0D00D3DF12 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */; };
+		D19BC30C1EB86C0D00D3DF12 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */; };
+		D19BC30E1EB8796800D3DF12 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BC30D1EB8796800D3DF12 /* ComposeTitleView.swift */; };
 		D1AAC7CE1E8CB287007C6F87 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */; };
 		D1AAC7D01E8CD331007C6F87 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1AAC7CF1E8CD331007C6F87 /* User.swift */; };
 /* End PBXBuildFile section */
@@ -103,6 +106,9 @@
 		D175D0421E9CCE67006C8172 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		D17625471E8BB4F900E28F33 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
+		D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
+		D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
+		D19BC30D1EB8796800D3DF12 /* ComposeTitleView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		D1AAC7CD1E8CB287007C6F87 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
 		D1AAC7CF1E8CD331007C6F87 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DE8713F171C44430EFD17F81 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +195,7 @@
 		D10D8EE01E19FE32003F6325 /* classes */ = {
 			isa = PBXGroup;
 			children = (
+				D19BC3081EB86BD400D3DF12 /* Compose */,
 				D10D8EE31E19FE32003F6325 /* Main */,
 				D1226B781E24C40A0043DFCF /* Home */,
 				D10D8EE41E19FE32003F6325 /* Message */,
@@ -323,6 +330,16 @@
 			path = HomeModel;
 			sourceTree = "<group>";
 		};
+		D19BC3081EB86BD400D3DF12 /* Compose */ = {
+			isa = PBXGroup;
+			children = (
+				D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */,
+				D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */,
+				D19BC30D1EB8796800D3DF12 /* ComposeTitleView.swift */,
+			);
+			path = Compose;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -411,6 +428,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D19BC30C1EB86C0D00D3DF12 /* ComposeViewController.xib in Resources */,
 				D1226B861E24C6130043DFCF /* Home.storyboard in Resources */,
 				D1226B891E24C6710043DFCF /* NULL.storyboard in Resources */,
 				D10D8ECB1E19EED4003F6325 /* LaunchScreen.storyboard in Resources */,
@@ -492,11 +510,13 @@
 				D13D01F21E272E65007790F4 /* UIBarButtonItem-Extension.swift in Sources */,
 				D17625481E8BB4F900E28F33 /* Status.swift in Sources */,
 				D12E8AA91E72732C00E1BD78 /* UserAccount.swift in Sources */,
+				D19BC30E1EB8796800D3DF12 /* ComposeTitleView.swift in Sources */,
 				D10D8EEF1E1A378C003F6325 /* ProfileViewController.swift in Sources */,
 				D10D8EE91E1A3752003F6325 /* discoverViewController.swift in Sources */,
 				D13B10CC1E782527008E16E5 /* UserAccountViewModel.swift in Sources */,
 				D10D8EC11E19EED4003F6325 /* AppDelegate.swift in Sources */,
 				D133EF621E6D410A00A26ECA /* OAuthViewController.swift in Sources */,
+				D19BC30B1EB86C0D00D3DF12 /* ComposeViewController.swift in Sources */,
 				D14593BD1E2CA58C00C9CF79 /* PopoverViewController.swift in Sources */,
 				D13D01F41E274C12007790F4 /* TitleButton.swift in Sources */,
 				D10D8EE71E1A3501003F6325 /* MainViewController.swift in Sources */,

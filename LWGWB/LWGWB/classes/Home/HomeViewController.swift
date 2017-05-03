@@ -15,6 +15,8 @@ class HomeViewController: BaseViewController {
     
     // MARK: - 懒加载属性
     fileprivate lazy var titleBtn : TitleButton = TitleButton()
+    // 刷新提示label
+    fileprivate lazy var tipLabel : UILabel = UILabel()
     
     fileprivate lazy var popoverAnimator : PopoverAnimator = PopoverAnimator { (presented) -> () in
         self.titleBtn.isSelected = presented
@@ -34,8 +36,6 @@ class HomeViewController: BaseViewController {
         //2.设置导航栏的内容
         setupNavigationBar()
         
-//        // 3.请求数据
-//        loadStatuses()
         
         // 3.添加下面属性，可以自己估算高度，自适应内容，需要在cell中的label中设置高度约束
         tableView.rowHeight = UITableViewAutomaticDimension
@@ -44,6 +44,9 @@ class HomeViewController: BaseViewController {
         // 4.刷新控件header
         setupHeaderView()
         setupFooterView()
+        
+        setupTipLabel()
+        
     }
 
    
@@ -84,6 +87,17 @@ extension HomeViewController {
         tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadMoreStatuses))
     }
     
+    fileprivate func setupTipLabel() {
+        tipLabel = UILabel(frame: CGRect(x: 0, y: 10, width: SCREEN_WIDTH, height: 32))
+        navigationController?.navigationBar.insertSubview(tipLabel, at: 0)
+        
+        tipLabel.backgroundColor = UIColor.orange
+        tipLabel.textColor = UIColor.white
+        tipLabel.font = UIFont.systemFont(ofSize: 14)
+        tipLabel.textAlignment = .center
+        //tipLabel.isHidden = true
+        tipLabel.alpha = 0.0
+    }
 }
 
 // MARK:- 事件监听的函数
@@ -191,9 +205,34 @@ extension HomeViewController {
            
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
+            
+            // 显示提示的label
+            self.showTipLabel(count: viewModels.count)
+            
+            
         }
         
     }
+    
+    /// 显示提示的label
+    private func showTipLabel(count: Int) {
+
+        self.tipLabel.alpha = 1.0
+       tipLabel.text = count == 0 ? "没有新微博" : "更新\(count)条新微博"
+       
+        UIView.animate(withDuration: 1.0, animations: { 
+             self.tipLabel.frame.origin.y = 44
+            
+        }) { (_) in
+            UIView.animate(withDuration: 1.0, delay: 1.5, options: [], animations: { 
+                self.tipLabel.frame.origin.y = 10
+                self.tipLabel.alpha = 0.0
+            }, completion: { (_) in
+                
+            })
+        }
+    }
+    
 }
 
 // MARK:- tableView的数据源方法
