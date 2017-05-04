@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PicPickerViewCell" customModule="LWGWB" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="103" height="99"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="103" height="99"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcx-3y-9AO">
+                        <rect key="frame" x="0.0" y="0.0" width="103" height="99"/>
+                        <state key="normal" backgroundImage="compose_pic_add"/>
+                        <state key="highlighted" backgroundImage="compose_pic_add_highlighted"/>
+                    </button>
+                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QMe-Z3-blC">
+                        <rect key="frame" x="79" y="0.0" width="24" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="24" id="EGk-7h-FFe"/>
+                            <constraint firstAttribute="height" constant="24" id="Tpo-hr-L6b"/>
+                        </constraints>
+                        <state key="normal" image="compose_photo_close"/>
+                    </button>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="QMe-Z3-blC" secondAttribute="trailing" id="IbA-Lv-j4I"/>
+                <constraint firstAttribute="bottom" secondItem="tcx-3y-9AO" secondAttribute="bottom" id="Pyh-hA-bfv"/>
+                <constraint firstItem="tcx-3y-9AO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="kAa-Iw-owZ"/>
+                <constraint firstItem="tcx-3y-9AO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mnT-ej-UMF"/>
+                <constraint firstItem="QMe-Z3-blC" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="toW-B9-v6F"/>
+                <constraint firstAttribute="trailing" secondItem="tcx-3y-9AO" secondAttribute="trailing" id="uIW-yd-SEM"/>
+            </constraints>
+            <size key="customSize" width="103" height="99"/>
+            <point key="canvasLocation" x="58.5" y="125.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="compose_photo_close" width="24" height="24"/>
+        <image name="compose_pic_add" width="70" height="70"/>
+        <image name="compose_pic_add_highlighted" width="70" height="70"/>
+    </resources>
+</document>

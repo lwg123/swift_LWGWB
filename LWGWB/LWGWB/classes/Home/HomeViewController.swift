@@ -18,6 +18,8 @@ class HomeViewController: BaseViewController {
     // 刷新提示label
     fileprivate lazy var tipLabel : UILabel = UILabel()
     
+    var isNewData : Bool = false
+    
     fileprivate lazy var popoverAnimator : PopoverAnimator = PopoverAnimator { (presented) -> () in
         self.titleBtn.isSelected = presented
     }
@@ -172,7 +174,7 @@ extension HomeViewController {
             } else {
                 self.viewModels += tempViewModel
             }
-            
+            self.isNewData = isNewDate
             
             // 5.缓存图片
             self.cacheImages(viewModels: tempViewModel)
@@ -207,8 +209,9 @@ extension HomeViewController {
             self.tableView.mj_footer.endRefreshing()
             
             // 显示提示的label
-            self.showTipLabel(count: viewModels.count)
-            
+            if self.isNewData {
+                self.showTipLabel(count: viewModels.count)
+            }
             
         }
         
