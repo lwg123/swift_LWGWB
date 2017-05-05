@@ -150,9 +150,9 @@ extension HomeViewCell {
         let picViewH = rows * imageViewWH + (rows - 1) * itemMargin
         
         // 4.3 计算picView的宽度
-        let picViewW = SCREEN_WIDTH - 2 * edgeMargin
+        let picViewW = SCREEN_WIDTH - 2 * edgeMargin + 1
         
-        return CGSize(width: picViewH, height: picViewW)
+        return CGSize(width: picViewW, height: picViewH)
     }
 }
 

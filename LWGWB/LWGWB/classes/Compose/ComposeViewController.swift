@@ -12,11 +12,14 @@ class ComposeViewController: UIViewController {
 
     lazy var titleView: ComposeTitleView = ComposeTitleView()
     
+    var images: [UIImage] = [UIImage]()
+    
     @IBOutlet weak var textView: ComposeTextView!
     
     // MARK：-toolBar的底部约束
     @IBOutlet weak var toolBarBottomCons: NSLayoutConstraint!
     @IBOutlet weak var pickerViewH: NSLayoutConstraint!
+    @IBOutlet weak var picPickerView: PicPickerCollectionView!
     
     
     
@@ -28,12 +31,19 @@ class ComposeViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.keyboardWillChangeFrame(note:)), name: NSNotification.Name.UIKeyboardWillChangeFrame, object: nil)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.addPictureClick), name: NSNotification.Name(rawValue: addPicNotification), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(ComposeViewController.removePictureClick(note:)), name: NSNotification.Name(rawValue: removePicNotification), object: nil)
+        
     }
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        textView.becomeFirstResponder()
+        if picPickerView.dataImages.count == 0 {
+             textView.becomeFirstResponder()
+        }
+       
     }
     
     deinit {
@@ -91,8 +101,61 @@ extension ComposeViewController {
         }
     }
     
-    
+}
 
+extension ComposeViewController {
+
+    // 添加照片
+    @objc fileprivate func addPictureClick() {
+        // 1.判断照片源是否可用
+        if !UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+            return
+        }
+        // 2.创建照片选择器
+        let ipc = UIImagePickerController()
+        // 3.设置照片源
+        ipc.sourceType = .photoLibrary
+        // 4.设置代理
+        ipc.delegate = self
+        
+        ipc.allowsEditing = true
+        // 5.弹出控制器
+        present(ipc, animated: true, completion: nil)
+        
+    }
+    
+    // 删除照片
+    @objc fileprivate func removePictureClick(note: Notification) {
+        // 1.获取image对象
+        guard let image = note.object as? UIImage  else {
+            return
+        }
+        // 2.获取image对象所在的下标
+        guard let index = images.index(of: image) else {
+            return
+        }
+        // 3.将图片从数组中删除
+        images.remove(at: index)
+        // 4.重新赋值
+        picPickerView.dataImages = images
+    }
+
+}
+
+// MARK:UIImagePickerController代理方法
+extension ComposeViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // 获取选中的照片
+        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+        images.append(image)
+        // 将数组赋给collectionView自己去展示数据
+        picPickerView.dataImages = images
+        
+        // 退出选中照片控制器
+        picker.dismiss(animated: true, completion: nil)
+    }
 }
 
 // MARK：-UITextView的代理方法

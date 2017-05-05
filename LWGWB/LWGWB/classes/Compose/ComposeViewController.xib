@@ -10,6 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ComposeViewController" customModule="LWGWB" customModuleProvider="target">
             <connections>
+                <outlet property="picPickerView" destination="5nr-Vt-rOm" id="Qcs-lJ-qcB"/>
                 <outlet property="pickerViewH" destination="onz-f4-rft" id="TJz-5P-lpp"/>
                 <outlet property="textView" destination="D4s-m6-tGl" id="G7x-Wf-C2c"/>
                 <outlet property="toolBarBottomCons" destination="qMZ-Qs-k2l" id="PWQ-qs-r3Q"/>

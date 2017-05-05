@@ -152,7 +152,7 @@
                                         </view>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="41S-Ng-3dX" userLabel="图片的view" customClass="PicCollectionView" customModule="LWGWB" customModuleProvider="target">
                                             <rect key="frame" x="15" y="189" width="180" height="56"/>
-                                            <color key="backgroundColor" red="1" green="0.57850406409999999" blue="0.091357635660000006" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="180" id="18c-j5-2b2"/>
                                                 <constraint firstAttribute="height" constant="56" id="mbA-N2-crW"/>

@@ -13,6 +13,13 @@ private let picPickerCell = "picPickerCell"
 private let margin: CGFloat = 15
 
 class PicPickerCollectionView: UICollectionView {
+    
+    // 传递数据源过来，并进行监听，一旦发生改变就重新加载
+    var dataImages: [UIImage] = [UIImage]() {
+        didSet {
+            reloadData()
+        }
+    }
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -38,13 +45,15 @@ class PicPickerCollectionView: UICollectionView {
 extension PicPickerCollectionView : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return dataImages.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath) as! PicPickerViewCell
         
         cell.backgroundColor = UIColor.red
+        // 此处需判断一下，不然数组会越界
+        cell.image = indexPath.item <= dataImages.count - 1 ? dataImages[indexPath.item] : nil
         
         return cell
     }

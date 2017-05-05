@@ -15,3 +15,8 @@ let redirect_uri = "http://www.520it.com"
 
 let SCREEN_WIDTH = UIScreen.main.bounds.width
 let SCREEN_HEIGHT = UIScreen.main.bounds.height
+
+//添加照片的通知
+let addPicNotification = "addPicNotification"
+//删除照片的通知
+let removePicNotification = "removePicNotification"
