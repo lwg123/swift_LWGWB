@@ -59,6 +59,14 @@ class ComposeViewController: UIViewController {
         }
     }
     
+    @IBAction func emotionBtnClick() {
+        // 1.退出键盘
+        textView.resignFirstResponder()
+        // 2.切换键盘
+        textView.inputView = textView.inputView != nil ? nil : UISwitch()
+        // 3.弹出键盘
+        textView.becomeFirstResponder()
+    }
    
 }
 
@@ -100,6 +108,8 @@ extension ComposeViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    
     
 }
 
