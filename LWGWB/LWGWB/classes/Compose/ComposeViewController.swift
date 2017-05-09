@@ -21,7 +21,11 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var pickerViewH: NSLayoutConstraint!
     @IBOutlet weak var picPickerView: PicPickerCollectionView!
     
-    
+    lazy var emotonVC: EmotionController = EmotionController {[weak self] (emotion) in
+        self!.textView.insertEmotion(emotion: emotion)
+        // 只插入表情时不会主动触发textViewDidChange这个代理方法，需要自己手动调用一下
+        self?.textViewDidChange(self!.textView)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +67,7 @@ class ComposeViewController: UIViewController {
         // 1.退出键盘
         textView.resignFirstResponder()
         // 2.切换键盘
-        textView.inputView = textView.inputView != nil ? nil : UISwitch()
+        textView.inputView = textView.inputView != nil ? nil : emotonVC.view
         // 3.弹出键盘
         textView.becomeFirstResponder()
     }
@@ -88,7 +92,7 @@ extension ComposeViewController {
     }
     
     @objc fileprivate func sendItemClick() {
-        print("发送")
+        print(textView.getEmotionString())
     }
     
     @objc fileprivate func keyboardWillChangeFrame(note: Notification) {
