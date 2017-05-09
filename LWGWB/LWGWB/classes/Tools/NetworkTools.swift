@@ -73,7 +73,7 @@ extension NetworkTools {
     }
 }
 
-// MARK:- 请求首页数据
+// MARK: - 请求首页数据
 extension NetworkTools {
     func loadStatuses(since_id: Int, max_id: Int, _ finished: @escaping (_ result: [[String : AnyObject]]?, _ error: Error?) -> ()) {
         // 1.获取请求的URLString
@@ -95,6 +95,25 @@ extension NetworkTools {
     }
 }
 
+// MARK: - 发送微博
+extension NetworkTools {
+    func sendStatus(statusText: String, isSuccess: @escaping (_ isSucess: Bool) -> ()) {
+        // 1.获取请求urlString
+        let urlString = "https://api.weibo.com/2/statuses/update.json"
+        
+        // 2.获取参数列表
+        let parameters = ["access_token" : UserAccountViewModel.shareInstance.account?.access_token, "status" : statusText]
+        // 3.发送请求
+        request(.POST, urlString: urlString, parameters: parameters) { (result, error) in
+            if result != nil {
+                isSuccess(true)
+            } else {
+                isSuccess(false)
+            }
+        }
+        
+    }
+}
 
 
 

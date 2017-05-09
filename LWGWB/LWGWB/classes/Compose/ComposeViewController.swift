@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SVProgressHUD
 
 class ComposeViewController: UIViewController {
 
@@ -92,7 +93,20 @@ extension ComposeViewController {
     }
     
     @objc fileprivate func sendItemClick() {
-        print(textView.getEmotionString())
+        
+        textView.resignFirstResponder()
+        // 获取微博正文
+        let statusText = textView.getEmotionString()
+        
+        //调用接口发送微博
+        NetworkTools.shareInstance.sendStatus(statusText: statusText) { (isSucess) in
+            if !isSucess {
+                SVProgressHUD.showError(withStatus: "发送微博失败！")
+            }
+            
+            SVProgressHUD.showSuccess(withStatus: "发送微博成功！")
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     @objc fileprivate func keyboardWillChangeFrame(note: Notification) {
