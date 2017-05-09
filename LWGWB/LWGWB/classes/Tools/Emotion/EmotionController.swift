@@ -115,8 +115,7 @@ extension EmotionController : UICollectionViewDataSource,UICollectionViewDelegat
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmotionCell, for: indexPath) as! EmotionViewCell
-       // cell.backgroundColor = indexPath.item % 2 == 0 ? UIColor.red : UIColor.blue
-        
+    
         // 2.给cell设置数据
         let package = manager.packages[indexPath.section]
         let emotion = package.emotions[indexPath.item]

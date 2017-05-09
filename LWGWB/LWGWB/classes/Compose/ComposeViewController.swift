@@ -98,15 +98,23 @@ extension ComposeViewController {
         // 获取微博正文
         let statusText = textView.getEmotionString()
         
-        //调用接口发送微博
-        NetworkTools.shareInstance.sendStatus(statusText: statusText) { (isSucess) in
-            if !isSucess {
+        // 定义回调闭包
+        let finishedCallback = { (isSuccess: Bool) in
+            if !isSuccess {
                 SVProgressHUD.showError(withStatus: "发送微博失败！")
             }
             
             SVProgressHUD.showSuccess(withStatus: "发送微博成功！")
             self.dismiss(animated: true, completion: nil)
         }
+        
+        // 获取用户选中的图片
+        if let image = images.first {
+            NetworkTools.shareInstance.sendStatus(statusText: statusText, image: image, isSuccess: finishedCallback)
+        } else {
+            NetworkTools.shareInstance.sendStatus(statusText: statusText, isSuccess: finishedCallback)
+        }
+    
     }
     
     @objc fileprivate func keyboardWillChangeFrame(note: Notification) {

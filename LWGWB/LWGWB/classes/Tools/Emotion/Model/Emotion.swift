@@ -63,6 +63,7 @@ class Emotion: NSObject {
         self.isEmpty = isEmpty
     }
     
+    //重写此方法，对未用的key设置为nil
     override func setValue(_ value: Any?, forUndefinedKey key: String) {
         
     }

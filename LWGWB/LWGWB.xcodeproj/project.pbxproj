@@ -33,6 +33,7 @@
 		D12DAE8D1EC152EF004C64AE /* EmotionPackage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE851EC152EF004C64AE /* EmotionPackage.swift */; };
 		D12DAE8E1EC152EF004C64AE /* EmotionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE861EC152EF004C64AE /* EmotionViewCell.swift */; };
 		D12DAE8F1EC152EF004C64AE /* UITextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE871EC152EF004C64AE /* UITextView-Extension.swift */; };
+		D12DAEC41EC1BD8A004C64AE /* FindEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAEC31EC1BD8A004C64AE /* FindEmotion.swift */; };
 		D12E8AA91E72732C00E1BD78 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E8AA81E72732C00E1BD78 /* UserAccount.swift */; };
 		D133EF621E6D410A00A26ECA /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133EF601E6D410A00A26ECA /* OAuthViewController.swift */; };
 		D133EF631E6D410A00A26ECA /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D133EF611E6D410A00A26ECA /* OAuthViewController.xib */; };
@@ -106,6 +107,7 @@
 		D12DAE851EC152EF004C64AE /* EmotionPackage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionPackage.swift; sourceTree = "<group>"; };
 		D12DAE861EC152EF004C64AE /* EmotionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionViewCell.swift; sourceTree = "<group>"; };
 		D12DAE871EC152EF004C64AE /* UITextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView-Extension.swift"; sourceTree = "<group>"; };
+		D12DAEC31EC1BD8A004C64AE /* FindEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindEmotion.swift; sourceTree = "<group>"; };
 		D12E8AA81E72732C00E1BD78 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
 		D133EF601E6D410A00A26ECA /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		D133EF611E6D410A00A26ECA /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 			children = (
 				D12DAE7F1EC152EF004C64AE /* Emoticons.bundle */,
 				D12DAE801EC152EF004C64AE /* EmotionController.swift */,
+				D12DAEC31EC1BD8A004C64AE /* FindEmotion.swift */,
 				D12DAE811EC152EF004C64AE /* Model */,
 			);
 			path = Emotion;
@@ -596,6 +599,7 @@
 				D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */,
 				D12DAE8C1EC152EF004C64AE /* EmotionManager.swift in Sources */,
 				D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */,
+				D12DAEC41EC1BD8A004C64AE /* FindEmotion.swift in Sources */,
 				D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */,
 				D15DF3971E25F44000C96BEF /* BaseViewController.swift in Sources */,
 				D13687D51E9F697200107C8A /* PicCollectionView.swift in Sources */,
