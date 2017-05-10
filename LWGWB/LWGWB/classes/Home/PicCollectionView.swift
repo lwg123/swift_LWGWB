@@ -22,11 +22,12 @@ class PicCollectionView: UICollectionView {
         super.awakeFromNib()
         
         dataSource = self
+        delegate = self
     }
 
 }
 
-extension PicCollectionView : UICollectionViewDataSource {
+extension PicCollectionView : UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picURLs.count
     }
@@ -39,6 +40,10 @@ extension PicCollectionView : UICollectionViewDataSource {
         cell.picURL = picURLs[indexPath.item]
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.item)
     }
 }
 

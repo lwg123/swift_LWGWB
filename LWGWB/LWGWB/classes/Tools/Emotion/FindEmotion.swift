@@ -15,8 +15,11 @@ class FindEmotion: NSObject {
     static let shareInstance: FindEmotion = FindEmotion()
     
     // 查找属性字符串的方法
-    func findAttributeString(statusText: String, font: UIFont) -> NSMutableAttributedString? {
+    func findAttributeString(statusText: String?, font: UIFont) -> NSMutableAttributedString? {
         
+        guard let statusText = statusText  else {
+            return nil
+        }
         let pattern = "\\[.*?\\]" // 匹配表情
         // 2.创建正则表达式对象
         guard let regex = try? NSRegularExpression(pattern: pattern, options: []) else {

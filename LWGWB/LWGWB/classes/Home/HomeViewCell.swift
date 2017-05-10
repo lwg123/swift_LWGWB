@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import HYLabel
 
 private let edgeMargin : CGFloat = 15
 private let itemMargin : CGFloat = 10
@@ -20,7 +21,7 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var vipImg: UIImageView!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var sourceLabel: UILabel!
-    @IBOutlet weak var contentLabel: UILabel!
+    @IBOutlet weak var contentLabel: HYLabel!
     @IBOutlet weak var picCollectionView: PicCollectionView!
     
     // 约束的属性
@@ -28,7 +29,7 @@ class HomeViewCell: UITableViewCell {
     @IBOutlet weak var picViewHCons: NSLayoutConstraint!
     @IBOutlet weak var picViewWCons: NSLayoutConstraint!
     
-    @IBOutlet weak var retweetedContentLabel: UILabel!
+    @IBOutlet weak var retweetedContentLabel: HYLabel!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var picViewBottomCons: NSLayoutConstraint!
     @IBOutlet weak var retweetedCons: NSLayoutConstraint!
@@ -48,8 +49,9 @@ class HomeViewCell: UITableViewCell {
             vipImg.image = viewModel.vipImage
             screenName.text = viewModel.status?.user?.screen_name
             timeLabel.text = viewModel.createAtText
-    
-            contentLabel.text = viewModel.status?.text
+            
+            // 设置微博正文
+            contentLabel.attributedText = FindEmotion.shareInstance.findAttributeString(statusText: viewModel.status?.text, font: contentLabel.font)
             
             // 设置来源
             if let sourceText = viewModel.sourceText {
@@ -74,7 +76,8 @@ class HomeViewCell: UITableViewCell {
             if viewModel.status?.retweeted_status != nil {
                 if let screenName = viewModel.status?.user?.screen_name,let retweetedText = viewModel.status?.retweeted_status?.text {
                     
-                    retweetedContentLabel.text = "@" + "\(screenName)" + retweetedText
+                    let retweetedText = "@" + "\(screenName) " + retweetedText
+                    retweetedContentLabel.attributedText = FindEmotion.shareInstance.findAttributeString(statusText: retweetedText, font: retweetedContentLabel.font)
                     
                     // 设置转发正文距离顶部的约束
                     retweetedCons.constant = 15
@@ -101,6 +104,30 @@ class HomeViewCell: UITableViewCell {
         // 设置微博正文宽度 约束
         contentWidthConstraints.constant = UIScreen.main.bounds.width - 2 * edgeMargin
     
+        // 设置HYLabel的内容
+        contentLabel.matchTextColor = UIColor.blue
+        
+        // 监听HYLabel内容的点击
+        // 监听@谁谁谁
+        contentLabel.userTapHandler = { (label, user, range) in
+            
+            print(user)
+            print(range)
+        }
+        
+        // 监听链接的点击
+        contentLabel.linkTapHandler = { (label, link, range) in
+           
+            print(link)
+            print(range)
+        }
+        
+        // 监听话题的点击
+        contentLabel.topicTapHandler = { (label, topic, range) in
+    
+            print(topic)
+            print(range)
+        }
     }
 
 }
