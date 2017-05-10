@@ -25,6 +25,7 @@
 		D1226B891E24C6710043DFCF /* NULL.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1226B871E24C6710043DFCF /* NULL.storyboard */; };
 		D1226B8D1E24D6D60043DFCF /* UIButton-Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1226B8C1E24D6D60043DFCF /* UIButton-Category.swift */; };
 		D1275E821E719EA700CCF0D6 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1275E811E719EA700CCF0D6 /* Common.swift */; };
+		D12DA3651EC350C2008C52D5 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DA3641EC350C2008C52D5 /* ProgressView.swift */; };
 		D12DAE881EC152EF004C64AE /* Emoticons.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D12DAE7F1EC152EF004C64AE /* Emoticons.bundle */; };
 		D12DAE891EC152EF004C64AE /* EmotionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE801EC152EF004C64AE /* EmotionController.swift */; };
 		D12DAE8A1EC152EF004C64AE /* Emotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE821EC152EF004C64AE /* Emotion.swift */; };
@@ -101,6 +102,7 @@
 		D1226B881E24C6710043DFCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/NULL.storyboard; sourceTree = "<group>"; };
 		D1226B8C1E24D6D60043DFCF /* UIButton-Category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton-Category.swift"; sourceTree = "<group>"; };
 		D1275E811E719EA700CCF0D6 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		D12DA3641EC350C2008C52D5 /* ProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		D12DAE7F1EC152EF004C64AE /* Emoticons.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticons.bundle; sourceTree = "<group>"; };
 		D12DAE801EC152EF004C64AE /* EmotionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmotionController.swift; sourceTree = "<group>"; };
 		D12DAE821EC152EF004C64AE /* Emotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Emotion.swift; sourceTree = "<group>"; };
@@ -391,6 +393,7 @@
 			children = (
 				D176C48E1EC2DEC500A8E85C /* PhotoBrowserController.swift */,
 				D176C4911EC3007200A8E85C /* PhotoBrowserViewCell.swift */,
+				D12DA3641EC350C2008C52D5 /* ProgressView.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				D12DAE8E1EC152EF004C64AE /* EmotionViewCell.swift in Sources */,
 				D10D8EEF1E1A378C003F6325 /* ProfileViewController.swift in Sources */,
 				D10D8EE91E1A3752003F6325 /* discoverViewController.swift in Sources */,
+				D12DA3651EC350C2008C52D5 /* ProgressView.swift in Sources */,
 				D12DAE8F1EC152EF004C64AE /* UITextView-Extension.swift in Sources */,
 				D13B10CC1E782527008E16E5 /* UserAccountViewModel.swift in Sources */,
 				D10D8EC11E19EED4003F6325 /* AppDelegate.swift in Sources */,
