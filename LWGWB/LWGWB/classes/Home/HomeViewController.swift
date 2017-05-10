@@ -49,6 +49,7 @@ class HomeViewController: BaseViewController {
         
         setupTipLabel()
         
+        setupNotifications()
     }
 
    
@@ -100,6 +101,10 @@ extension HomeViewController {
         //tipLabel.isHidden = true
         tipLabel.alpha = 0.0
     }
+    
+    fileprivate func setupNotifications() {
+        NotificationCenter.default.addObserver(self, selector: #selector(HomeViewController.showPhotoBrowser(note:)), name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil)
+    }
 }
 
 // MARK:- 事件监听的函数
@@ -117,6 +122,16 @@ extension HomeViewController {
         
         // 4.弹出控制器
         present(popoverVc, animated: true, completion: nil)
+    }
+    
+    @objc fileprivate func showPhotoBrowser(note: Notification) {
+        // 1.取出数据
+        let indexPath = note.userInfo?[ShowPhotoBrowserIndexKey] as! NSIndexPath
+        let picURLs = note.userInfo?[ShowPhotoBrowserUrlsKey] as! [URL]
+        
+        let photoBrowserVC = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
+        
+        present(photoBrowserVC, animated: true, completion: nil)
     }
 }
 

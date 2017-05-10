@@ -20,3 +20,8 @@ let SCREEN_HEIGHT = UIScreen.main.bounds.height
 let addPicNotification = "addPicNotification"
 //删除照片的通知
 let removePicNotification = "removePicNotification"
+
+// 照片浏览器通知
+let ShowPhotoBrowserNote = "ShowPhotoBrowseNote"
+let ShowPhotoBrowserIndexKey = "ShowPhotoBrowserIndexKey"
+let ShowPhotoBrowserUrlsKey = "ShowPhotoBrowserUrlsKey"

@@ -54,6 +54,8 @@
 		D175D0411E9CB3A3006C8172 /* StatusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */; };
 		D175D0431E9CCE68006C8172 /* HomeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D175D0421E9CCE67006C8172 /* HomeViewCell.swift */; };
 		D17625481E8BB4F900E28F33 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17625471E8BB4F900E28F33 /* Status.swift */; };
+		D176C48F1EC2DEC500A8E85C /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176C48E1EC2DEC500A8E85C /* PhotoBrowserController.swift */; };
+		D176C4921EC3007200A8E85C /* PhotoBrowserViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D176C4911EC3007200A8E85C /* PhotoBrowserViewCell.swift */; };
 		D18474EB1E4AF4A500A1186C /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */; };
 		D19BC30B1EB86C0D00D3DF12 /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */; };
 		D19BC30C1EB86C0D00D3DF12 /* ComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */; };
@@ -128,6 +130,8 @@
 		D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusViewModel.swift; sourceTree = "<group>"; };
 		D175D0421E9CCE67006C8172 /* HomeViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewCell.swift; sourceTree = "<group>"; };
 		D17625471E8BB4F900E28F33 /* Status.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
+		D176C48E1EC2DEC500A8E85C /* PhotoBrowserController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
+		D176C4911EC3007200A8E85C /* PhotoBrowserViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewCell.swift; sourceTree = "<group>"; };
 		D18474EA1E4AF4A500A1186C /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
 		D19BC3091EB86C0D00D3DF12 /* ComposeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		D19BC30A1EB86C0D00D3DF12 /* ComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ComposeViewController.xib; sourceTree = "<group>"; };
@@ -276,6 +280,7 @@
 			children = (
 				D14593BA1E2CA55C00C9CF79 /* UIPopover */,
 				D17625461E8BB4E000E28F33 /* HomeModel */,
+				D176C48D1EC2DE9700A8E85C /* PhotoBrowser */,
 				D1226B851E24C6130043DFCF /* Home.storyboard */,
 				D1226B791E24C40A0043DFCF /* HomeViewController.swift */,
 				D175D0421E9CCE67006C8172 /* HomeViewCell.swift */,
@@ -379,6 +384,15 @@
 				D175D0401E9CB3A3006C8172 /* StatusViewModel.swift */,
 			);
 			path = HomeModel;
+			sourceTree = "<group>";
+		};
+		D176C48D1EC2DE9700A8E85C /* PhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				D176C48E1EC2DEC500A8E85C /* PhotoBrowserController.swift */,
+				D176C4911EC3007200A8E85C /* PhotoBrowserViewCell.swift */,
+			);
+			path = PhotoBrowser;
 			sourceTree = "<group>";
 		};
 		D19BC3081EB86BD400D3DF12 /* Compose */ = {
@@ -588,6 +602,7 @@
 				D133EF621E6D410A00A26ECA /* OAuthViewController.swift in Sources */,
 				D19BC30B1EB86C0D00D3DF12 /* ComposeViewController.swift in Sources */,
 				D12DAE8D1EC152EF004C64AE /* EmotionPackage.swift in Sources */,
+				D176C48F1EC2DEC500A8E85C /* PhotoBrowserController.swift in Sources */,
 				D14593BD1E2CA58C00C9CF79 /* PopoverViewController.swift in Sources */,
 				D13D01F41E274C12007790F4 /* TitleButton.swift in Sources */,
 				D10D8EE71E1A3501003F6325 /* MainViewController.swift in Sources */,
@@ -605,6 +620,7 @@
 				D13687D51E9F697200107C8A /* PicCollectionView.swift in Sources */,
 				D1226B7A1E24C40A0043DFCF /* HomeViewController.swift in Sources */,
 				D10D8EED1E1A377B003F6325 /* MessageViewController.swift in Sources */,
+				D176C4921EC3007200A8E85C /* PhotoBrowserViewCell.swift in Sources */,
 				D14593C01E2CAC6900C9CF79 /* XMGPresentionController.swift in Sources */,
 				D15DF3951E25DD4100C96BEF /* VisitorView.swift in Sources */,
 				D13FB24B1E8B7DDE0047FF6F /* WelcomViewController.swift in Sources */,
