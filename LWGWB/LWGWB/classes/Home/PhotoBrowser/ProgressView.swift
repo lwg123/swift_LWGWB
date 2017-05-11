@@ -13,7 +13,7 @@ class ProgressView: UIView {
     // 定义属性
     var progress: CGFloat = 0 {
         didSet {
-            setNeedsLayout()
+            setNeedsDisplay()
         }
     }
   

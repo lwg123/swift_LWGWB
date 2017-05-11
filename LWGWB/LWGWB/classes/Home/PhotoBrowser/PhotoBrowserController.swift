@@ -12,7 +12,7 @@ import SnapKit
 let PhotoBrowsercell = "PhotoBrowsercell"
 
 class PhotoBrowserController: UIViewController {
-    var indexPath: NSIndexPath
+    var indexPath: IndexPath
     var picURLs: [URL]
     
     lazy var colloctionView: UICollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: PhotoBrowserCollectionViewLayout())
@@ -20,7 +20,8 @@ class PhotoBrowserController: UIViewController {
     var closeBtn = UIButton(bgColor: UIColor.lightGray, font: 14, title: "关 闭")
     var saveBtn = UIButton(bgColor: UIColor.lightGray, font: 14, title: "保 存")
     
-    init(indexPath: NSIndexPath, picURLs: [URL]) {
+    // 自定义构造函数
+    init(indexPath: IndexPath, picURLs: [URL]) {
         self.indexPath = indexPath
         self.picURLs = picURLs
         
@@ -32,12 +33,21 @@ class PhotoBrowserController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // 系统回调函数
+//    override func loadView() {
+    // 不能在此处更改view的bounds，此时获取的frame为0
+//        view.bounds.size.width += 20
+//
+//    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.bounds.size.width += 20  // 此处更改view的frame
         // 设置UI界面
         setupUI()
         
+        // 滚动到对应的图片
+        colloctionView.scrollToItem(at: indexPath, at: .left, animated: false)
     }
 
     

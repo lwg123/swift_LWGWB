@@ -126,7 +126,7 @@ extension HomeViewController {
     
     @objc fileprivate func showPhotoBrowser(note: Notification) {
         // 1.取出数据
-        let indexPath = note.userInfo?[ShowPhotoBrowserIndexKey] as! NSIndexPath
+        let indexPath = note.userInfo?[ShowPhotoBrowserIndexKey] as! IndexPath
         let picURLs = note.userInfo?[ShowPhotoBrowserUrlsKey] as! [URL]
         
         let photoBrowserVC = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)

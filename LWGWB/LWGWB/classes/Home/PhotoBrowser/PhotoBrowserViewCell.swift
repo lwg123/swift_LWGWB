@@ -46,12 +46,15 @@ extension PhotoBrowserViewCell {
         
         // 设置子控件frame
         scrollView.frame = contentView.bounds
+        // scrollView的frame设置为和屏幕一样大，因contentView.bounds加了20，此处减去20
+        scrollView.frame.size.width -= 20
         progressView.bounds = CGRect(x: 0, y: 0, width: 50, height: 50)
         progressView.center = CGPoint(x: SCREEN_WIDTH * 0.5, y: SCREEN_HEIGHT * 0.5)
         
         // 设置控件属性
         progressView.isHidden = true
-        progressView.backgroundColor = UIColor.red
+        // 设置背景颜色为透明
+        progressView.backgroundColor = UIColor.clear
     }
 }
 
@@ -75,11 +78,12 @@ extension PhotoBrowserViewCell {
         imageView.frame = CGRect(x: 0, y: y, width: width, height: height)
         
         // 设置大图
-        imageView.sd_setImage(with: getBigURL(smallURL: picURL), placeholderImage: image, options: [], progress: { (current, total) in
-            self.progressView.progress = CGFloat(current) / CGFloat(total)
+        progressView.isHidden = false
+        imageView.sd_setImage( with: getBigURL(smallURL: picURL), placeholderImage: image, options: [], progress: {[weak self] (current, total) in
+            self?.progressView.progress = CGFloat(current) / CGFloat(total)
             
-        }) { (_, _, _, _) in
-            self.progressView.isHidden = true
+        }) { [weak self](_, _, _, _) in
+            self?.progressView.isHidden = true
         }
         
         scrollView.contentSize = CGSize(width: 0, height: height)
