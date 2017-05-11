@@ -8,12 +8,14 @@
 
 import UIKit
 import SnapKit
+import SVProgressHUD
 
 let PhotoBrowsercell = "PhotoBrowsercell"
 
 class PhotoBrowserController: UIViewController {
     var indexPath: IndexPath
     var picURLs: [URL]
+    
     
     lazy var colloctionView: UICollectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: PhotoBrowserCollectionViewLayout())
     
@@ -42,7 +44,7 @@ class PhotoBrowserController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.bounds.size.width += 20  // 此处更改view的frame
+        view.frame.size.width += 20  // 此处更改view的frame
         // 设置UI界面
         setupUI()
         
@@ -92,8 +94,30 @@ extension PhotoBrowserController {
     }
     
     @objc fileprivate func saveBtnClick() {
-        print("saveBtnClick")
+        // 1.获取当前正在显示的image
+        let cell = colloctionView.visibleCells.first as! PhotoBrowserViewCell
+        guard let image = cell.imageView.image else {
+            return
+        }
+        
+        // 2.将image对象保存在相册
+        UIImageWriteToSavedPhotosAlbum(image, self, #selector(PhotoBrowserController.savedPhotosAlbum(image:didFinishSavingWithError:contextInfo:)), nil)
+        
     }
+    
+    //  - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo;
+    // 必须要实现上面这个函数的回调
+    @objc fileprivate func savedPhotosAlbum(image: UIImage, didFinishSavingWithError error: Error?, contextInfo: AnyObject) {
+        var showInfo = ""
+        if error != nil {
+            showInfo = "保存失败"
+        } else {
+            showInfo = "保存成功"
+        }
+        
+        SVProgressHUD.showInfo(withStatus: showInfo)
+    }
+    
 }
 
 extension PhotoBrowserController : UICollectionViewDataSource {
@@ -104,12 +128,21 @@ extension PhotoBrowserController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = colloctionView.dequeueReusableCell(withReuseIdentifier: PhotoBrowsercell, for: indexPath) as! PhotoBrowserViewCell
         cell.picURL = picURLs[indexPath.item]
+        cell.delegate = self
         
         return cell
     }
+    
+    
 
 }
 
+//PhotoBrowserViewCell代理方法
+extension PhotoBrowserController : PhotoBrowserViewCellDelegate {
+    func imageViewClick() {
+        closeBtnClick()
+    }
+}
 
 class PhotoBrowserCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepare() {

@@ -130,6 +130,8 @@ extension HomeViewController {
         let picURLs = note.userInfo?[ShowPhotoBrowserUrlsKey] as! [URL]
         
         let photoBrowserVC = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
+        // 设置modal样式，否则后面的view会隐藏掉
+        photoBrowserVC.modalPresentationStyle = .custom
         
         present(photoBrowserVC, animated: true, completion: nil)
     }
