@@ -36,6 +36,7 @@
 		D12DAE8F1EC152EF004C64AE /* UITextView-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAE871EC152EF004C64AE /* UITextView-Extension.swift */; };
 		D12DAEC41EC1BD8A004C64AE /* FindEmotion.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12DAEC31EC1BD8A004C64AE /* FindEmotion.swift */; };
 		D12E8AA91E72732C00E1BD78 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = D12E8AA81E72732C00E1BD78 /* UserAccount.swift */; };
+		D1322E3E1EC4A84A00BC50BC /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1322E3D1EC4A84A00BC50BC /* PhotoBrowserAnimator.swift */; };
 		D133EF621E6D410A00A26ECA /* OAuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D133EF601E6D410A00A26ECA /* OAuthViewController.swift */; };
 		D133EF631E6D410A00A26ECA /* OAuthViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D133EF611E6D410A00A26ECA /* OAuthViewController.xib */; };
 		D13687D51E9F697200107C8A /* PicCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D13687D41E9F697200107C8A /* PicCollectionView.swift */; };
@@ -113,6 +114,7 @@
 		D12DAE871EC152EF004C64AE /* UITextView-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextView-Extension.swift"; sourceTree = "<group>"; };
 		D12DAEC31EC1BD8A004C64AE /* FindEmotion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindEmotion.swift; sourceTree = "<group>"; };
 		D12E8AA81E72732C00E1BD78 /* UserAccount.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		D1322E3D1EC4A84A00BC50BC /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		D133EF601E6D410A00A26ECA /* OAuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OAuthViewController.swift; sourceTree = "<group>"; };
 		D133EF611E6D410A00A26ECA /* OAuthViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OAuthViewController.xib; sourceTree = "<group>"; };
 		D13687D41E9F697200107C8A /* PicCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PicCollectionView.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				D176C48E1EC2DEC500A8E85C /* PhotoBrowserController.swift */,
 				D176C4911EC3007200A8E85C /* PhotoBrowserViewCell.swift */,
 				D12DA3641EC350C2008C52D5 /* ProgressView.swift */,
+				D1322E3D1EC4A84A00BC50BC /* PhotoBrowserAnimator.swift */,
 			);
 			path = PhotoBrowser;
 			sourceTree = "<group>";
@@ -599,6 +602,7 @@
 				D12DAE8E1EC152EF004C64AE /* EmotionViewCell.swift in Sources */,
 				D10D8EEF1E1A378C003F6325 /* ProfileViewController.swift in Sources */,
 				D10D8EE91E1A3752003F6325 /* discoverViewController.swift in Sources */,
+				D1322E3E1EC4A84A00BC50BC /* PhotoBrowserAnimator.swift in Sources */,
 				D12DA3651EC350C2008C52D5 /* ProgressView.swift in Sources */,
 				D12DAE8F1EC152EF004C64AE /* UITextView-Extension.swift in Sources */,
 				D13B10CC1E782527008E16E5 /* UserAccountViewModel.swift in Sources */,

@@ -18,6 +18,8 @@ class HomeViewController: BaseViewController {
     // 刷新提示label
     fileprivate lazy var tipLabel : UILabel = UILabel()
     
+    fileprivate lazy var photoBrowserAnimator: PhotoBrowserAnimator = PhotoBrowserAnimator()
+    
     var isNewData : Bool = false
     
     fileprivate lazy var popoverAnimator : PopoverAnimator = PopoverAnimator { (presented) -> () in
@@ -98,7 +100,6 @@ extension HomeViewController {
         tipLabel.textColor = UIColor.white
         tipLabel.font = UIFont.systemFont(ofSize: 14)
         tipLabel.textAlignment = .center
-        //tipLabel.isHidden = true
         tipLabel.alpha = 0.0
     }
     
@@ -132,6 +133,8 @@ extension HomeViewController {
         let photoBrowserVC = PhotoBrowserController(indexPath: indexPath, picURLs: picURLs)
         // 设置modal样式，否则后面的view会隐藏掉
         photoBrowserVC.modalPresentationStyle = .custom
+        // 设置转场代理
+        photoBrowserVC.transitioningDelegate = photoBrowserAnimator
         
         present(photoBrowserVC, animated: true, completion: nil)
     }

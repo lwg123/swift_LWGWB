@@ -72,7 +72,7 @@ extension PhotoBrowserController {
         }
         
         saveBtn.snp_makeConstraints { (make) in
-            _ = make.right.equalTo(-20)
+            _ = make.right.equalTo(-40)
             _ = make.bottom.equalTo(closeBtn.snp_bottom)
             _ = make.size.equalTo(closeBtn.snp_size)
         }

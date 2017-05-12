@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class PicCollectionView: UICollectionView {
 
@@ -51,6 +52,49 @@ extension PicCollectionView : UICollectionViewDataSource, UICollectionViewDelega
     }
 }
 
+extension PicCollectionView : AnimatorPresentedDelegate {
+    func startRect(indexPath: IndexPath) -> CGRect {
+        // 1.获取cell
+        let cell = self.cellForItem(at: indexPath)!
+        
+        // 2.获取cell的frame
+        let startFrame = self.convert(cell.frame, to: UIApplication.shared.keyWindow)
+        return startFrame
+    }
+    
+    func endRect(indexPath: IndexPath) -> CGRect {
+        // 1.获取该位置的image
+        let picURL = picURLs[indexPath.item]
+        
+        let image = SDWebImageManager.shared().imageCache.imageFromDiskCache(forKey: picURL.absoluteString)!
+        
+        // 计算结束后的frame
+        let w = SCREEN_WIDTH
+        let h = w / image.size.width * image.size.height
+        var y : CGFloat = 0
+        if h > SCREEN_HEIGHT {
+            y = 0
+        } else {
+            y = (SCREEN_HEIGHT - h) * 0.5
+        }
+        
+        return CGRect(x: 0, y: y, width: w, height: h)
+    }
+    
+    func imageView(indexPath: IndexPath) -> UIImageView {
+        let imageView = UIImageView()
+        
+        // 2.获取该位置的image
+        let picURL = picURLs[indexPath.item]
+        
+        let image = SDWebImageManager.shared().imageCache.imageFromDiskCache(forKey: picURL.absoluteString)!
+        imageView.image = image
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
 
 class PicCollectionViewCell: UICollectionViewCell {
     // mark: - 定义模型属性
