@@ -31,8 +31,8 @@ extension ComposeTextView {
     fileprivate func setupUI() {
         addSubview(placeHolderLabel)
         placeHolderLabel.snp_makeConstraints { (make) in
-            make.top.equalTo(8)
-            make.left.equalTo(10)
+            _ = make.top.equalTo(8)
+            _ = make.left.equalTo(10)
             
             placeHolderLabel.textColor = UIColor.lightGray
             placeHolderLabel.font = font

@@ -33,13 +33,13 @@ extension ComposeTitleView {
         
         //设置frame
         titleLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(self)
-            make.top.equalTo(self)
+            _ = make.centerX.equalTo(self)
+            _ = make.top.equalTo(self)
         }
         
         screenNameLabel.snp_makeConstraints { (make) in
-            make.centerX.equalTo(titleLabel.snp_centerX)
-            make.top.equalTo(titleLabel.snp_bottom).offset(3)
+            _ = make.centerX.equalTo(titleLabel.snp_centerX)
+            _ = make.top.equalTo(titleLabel.snp_bottom).offset(3)
         }
         
         titleLabel.font = UIFont.systemFont(ofSize: 16)

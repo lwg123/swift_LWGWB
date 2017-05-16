@@ -144,6 +144,28 @@ extension PhotoBrowserController : PhotoBrowserViewCellDelegate {
     }
 }
 
+// MARK: - 遵守AnimatorDismissDelegate
+extension PhotoBrowserController : AnimatorDismissedDelegate {
+    
+    func indexPathForDismissView() -> IndexPath {
+        let cell = colloctionView.visibleCells.first!
+        return colloctionView.indexPath(for: cell)!
+    }
+    
+    func imageViewForDismissView() -> UIImageView {
+        let imageView = UIImageView()
+        
+        let cell = colloctionView.visibleCells.first as! PhotoBrowserViewCell
+        imageView.frame = cell.imageView.frame
+        imageView.image = cell.imageView.image
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+}
+
 class PhotoBrowserCollectionViewLayout: UICollectionViewFlowLayout {
     override func prepare() {
         super.prepare()

@@ -47,8 +47,8 @@ extension PicCollectionView : UICollectionViewDataSource, UICollectionViewDelega
         // 1.获取通知需要传递的参数
         let userInfo = [ShowPhotoBrowserIndexKey : indexPath, ShowPhotoBrowserUrlsKey : picURLs] as [String : Any]
         
-        // 2.发送通知
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: nil, userInfo: userInfo)
+        // 2.发送通知,把object发送出去，成为代理
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: ShowPhotoBrowserNote), object: self, userInfo: userInfo)
     }
 }
 
