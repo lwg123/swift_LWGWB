@@ -27,7 +27,6 @@ class VisitorView: UIView {
         iconView.image = UIImage(named: iconName)
         tipLabel.text = title
         rotationView.isHidden = true
-        
     }
     
     func addRotationAnim() {
@@ -36,7 +35,7 @@ class VisitorView: UIView {
         
         // 2.设置动画的属性
         rotationAnim.fromValue = 0
-        rotationAnim.toValue = M_PI * 2
+        rotationAnim.toValue = Double.pi * 2
         rotationAnim.repeatCount = MAXFLOAT
         rotationAnim.duration = 5
         rotationAnim.isRemovedOnCompletion = false   //否则退出之后再进来就会停止转动

@@ -52,7 +52,14 @@ class HomeViewController: BaseViewController {
         setupTipLabel()
         
         setupNotifications()
+        
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .always
+        } else {
+            // Fallback on earlier versions
+        };
     }
+    
 
    
 }
@@ -73,6 +80,7 @@ extension HomeViewController {
     }
     
     fileprivate func setupHeaderView() {
+                
         // 1.创建headerView
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(HomeViewController.loadNewStatuses))
         

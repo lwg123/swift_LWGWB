@@ -36,12 +36,6 @@ class PhotoBrowserController: UIViewController {
     }
     
     // 系统回调函数
-//    override func loadView() {
-    // 不能在此处更改view的bounds，此时获取的frame为0
-//        view.bounds.size.width += 20
-//
-//    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.frame.size.width += 20  // 此处更改view的frame
@@ -133,8 +127,6 @@ extension PhotoBrowserController : UICollectionViewDataSource {
         return cell
     }
     
-    
-
 }
 
 //PhotoBrowserViewCell代理方法
